@@ -4,26 +4,22 @@ spec_version: 0.1.0
 category: Safety
 domain: escalationmd.dev
 priority: High
+volume: "Vol 1 — Core Agent Specs"
 maintained_by: TotalMarkdown.ai
 license: CC0 1.0 Universal
-canonical_repo: https://github.com/totalmarkdown/escalation.md
-part_of: https://github.com/totalmarkdown/agent-md-specs
+tier: core
 ---
+
+> **Canonical repository:**
+> [totalmarkdown/escalation.md](https://github.com/totalmarkdown/escalation.md)
+> This copy is included in agent-md-specs for cross-reference.
+> For contributions to this specific spec, use the canonical repo.
 
 # ESCALATION.md
 
 **Category:** Safety
 **Domain:** escalationmd.dev
 **Priority:** High
-**Version:** 0.1.0
-
-> This is the canonical repository for the ESCALATION.md specification.
-> Also part of [agent-md-specs](https://github.com/totalmarkdown/agent-md-specs)
-> — the comprehensive library of 178 agent configuration file type specs.
-
-## ESCALATION.md
-**Category:** Safety  
-**Domain:** escalationmd.dev (register)  
 **Version:** 0.1.0
 
 ### Purpose
@@ -101,10 +97,20 @@ Escalate immediately without attempting to handle autonomously:
 [Things agent should handle autonomously without bothering humans]
 ```
 
+## Related Specs
 
+| Spec | Relationship |
+|------|-------------|
+| CIRCUITBREAKER.md | Failure containment and blast radius |
+| CONTACT.md | Reachable endpoints |
+| DELEGATION.md | Authority chain and authorization |
+| ENFORCEMENT.md | Policy verification and compliance |
+| LIMITS.md | Hard constraints and safety boundaries |
+| MEMORY.md | Individual agent memory governance |
+| PERMISSIONS.md | Static resource access control |
+| POLICY.md | Operating policies and constraints |
 
 ---
 
-*Maintained by TotalMarkdown.ai*
 *Part of [agent-md-specs](https://github.com/totalmarkdown/agent-md-specs)*
-*License: CC0 1.0 Universal (Public Domain)*
+*Maintained by TotalMarkdown.ai · License: CC0 1.0 Universal*
