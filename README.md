@@ -1,6 +1,6 @@
 # ESCALATION.md
 
-> *Defines when and how an AI agent should escalate decisions to humans*
+> *Defines when and how AI agents escalate to human oversight*
 
 [![License: CC0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 [![Part of agent-md-specs](https://img.shields.io/badge/part%20of-agent--md--specs-blue)](https://github.com/totalmarkdown/agent-md-specs)
@@ -15,21 +15,19 @@
 
 ---
 
-
 > **Canonical Source:** This spec is maintained in the main
 > [agent-md-specs](https://github.com/totalmarkdown/agent-md-specs) repository.
 > This repo is an auto-synced mirror for easy discovery and download.
 > To report issues or submit changes, please open a PR or issue on the
 > [main repository](https://github.com/totalmarkdown/agent-md-specs).
 
-
 ## What is ESCALATION.md?
 
-ESCALATION.md defines the rules for human-in-the-loop safety. It specifies the conditions under which an agent must stop and ask a human, the urgency levels for different types of escalations, and the channels through which escalations happen.
+ESCALATION.md is the human-in-the-loop safety spec. It defines the triggers, levels, and contacts for when an agent needs human intervention — from simple approvals to emergency shutdowns.
 
-Every autonomous agent will eventually encounter a situation it shouldn't handle alone — a decision with irreversible consequences, an ambiguous instruction, or a scenario outside its training. ESCALATION.md ensures these moments are handled gracefully rather than recklessly.
+Every enterprise deployment needs clear escalation paths. Without them, agents either block on uncertainty (wasting time) or proceed recklessly (causing harm). ESCALATION.md ensures the right human gets involved at the right time.
 
-Create an ESCALATION.md for any agent that operates with autonomy. The more autonomous the agent, the more important its escalation protocol becomes.
+Create an ESCALATION.md for any agent that makes decisions affecting real systems, processes sensitive data, or operates in regulated environments.
 
 ---
 
@@ -45,15 +43,15 @@ Add to your project root and customize for your agent.
 
 ## When to use ESCALATION.md
 
-- Defining when a customer support agent should transfer to a human representative
-- Setting thresholds for a trading agent to pause and await human confirmation
-- Establishing escalation channels for an agent that manages infrastructure changes
+- Any agent that makes decisions affecting real systems or people
+- Agents handling sensitive data or financial transactions
+- Multi-agent fleets where failures need clear escalation paths
 
 ---
 
 ## Where it fits
 
-Critical companion to LIMITS.md (hard boundaries) and GUARDRAILS.md (runtime safety). Works with ICE.md (emergency protocols). Referenced by AGENTS.md and CLAUDE.md.
+Works alongside LIMITS.md (hard stops that trigger escalation), DELEGATION.md (authority chain that defines who to escalate to), CIRCUITBREAKER.md (failure-triggered escalation), and ENFORCEMENT.md (policy violations trigger escalation).
 
 ---
 
