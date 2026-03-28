@@ -49,32 +49,34 @@ updated: date
 ## Automatic Escalation Triggers
 Escalate immediately without attempting to handle autonomously:
 
-- [ ] Any action costing more than $[amount]
+- [ ] Any action costing more than $[amount] (see LIMITS.md for hard spending caps)
 - [ ] Any irreversible action (delete, send, publish, deploy)
 - [ ] Any request involving personal data of more than [N] users
-- [ ] Any security incident or suspected breach
+- [ ] Any security incident or suspected breach (see CIRCUITBREAKER.md for failure containment)
 - [ ] Any regulatory compliance question
 - [ ] Any request that contradicts existing POLICY.md rules
 - [ ] Any ambiguous instruction where misinterpretation could cause harm
 
 ## Escalation Levels
 
+_Authority context for each level is defined by the agent's delegation chain in DELEGATION.md._
+
 ### Level 1 — Notify (continue working)
-**When:** Minor uncertainty, low-risk decision made, anomaly detected  
-**How:** Log to [channel/file], continue with best judgment  
+**When:** Minor uncertainty, low-risk decision made, anomaly detected
+**How:** Log to [channel/file], continue with best judgment
 **Contact:** [optional]
 
 ### Level 2 — Request Guidance (pause and wait)
-**When:** Moderate uncertainty, medium-risk decision needed  
-**How:** Send message to [contact] via [channel], pause workflow  
-**Wait time:** [X hours before proceeding with default]  
+**When:** Moderate uncertainty, medium-risk decision needed
+**How:** Send message to [contact] via [channel], pause workflow
+**Wait time:** [X hours before proceeding with default]
 **Default action if no response:** [specific fallback]
 
 ### Level 3 — Hard Stop (do not proceed)
-**When:** High risk, potential harm, outside authority  
-**How:** Stop all actions, notify [contact] immediately  
-**Do not proceed until:** Explicit human approval received  
-**Escalation path:** [Person A] → [Person B] → [Person C]
+**When:** High risk, potential harm, outside authority
+**How:** Stop all actions, notify [contact] immediately via CONTACT.md endpoints
+**Do not proceed until:** Explicit human approval received
+**Escalation path:** [Person A] → [Person B] → [Person C] (final authority: OWNER.md)
 
 ## How to Escalate
 1. Stop current action
@@ -91,11 +93,19 @@ Escalate immediately without attempting to handle autonomously:
    Urgency: [low/medium/high]
    ```
 4. Wait for response (Level 2/3) or continue (Level 1)
-5. Log escalation and resolution in MEMORY.md
+5. Log escalation and resolution in MEMORY.md and AUDITTRAIL.md (all escalations must be logged)
 
 ## What NOT to Escalate
 [Things agent should handle autonomously without bothering humans]
 ```
+
+## Example Use Cases
+
+**Enterprise:** A procurement agent autonomously handles purchase orders under $500 but triggers a Level 2 escalation to the finance manager for any order exceeding that threshold, pausing the workflow until explicit approval is received.
+
+**Multi-Agent Fleet:** When a code review agent detects a security vulnerability in a pull request, it issues a Level 3 hard stop that halts the deployment pipeline and immediately notifies the security team lead, refusing to proceed until a human clears the issue.
+
+**Regulated Industry:** A pharmaceutical adverse event reporting agent escalates any patient safety signal to the pharmacovigilance officer within minutes, using the structured escalation template to ensure regulatory reporting deadlines are met.
 
 ## Related Specs
 
